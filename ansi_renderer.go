@@ -62,10 +62,10 @@ func (r *ansiRenderer) Render(ast *md.Node) []byte {
 			}
 		case md.Del:
 			if entering {
-				r.buf.WriteString("\033[2m")
-				r.Write([]byte("~~"))
+				r.buf.WriteString("\033[9m")
+				r.buf.WriteString("~~")
 			} else {
-				r.Write([]byte("~~"))
+				r.buf.WriteString("~~")
 				r.buf.WriteString("\033[0m")
 			}
 		case md.Link:
